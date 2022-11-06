@@ -1,0 +1,41 @@
+{
+  "name": "next-dev-https",
+  "version": "0.1.0",
+  "description": "Run Next dev server with QR and self signed https for better mobile development",
+  "keywords": [
+    "next",
+    "next.js",
+    "dev-server",
+    "script",
+    "https",
+    "qr"
+  ],
+  "author": "Tobias Melén",
+  "license": "MIT",
+  "bin": "./bin.js",
+  "files": [
+    "bin.js",
+    "src/server.js",
+    "src/utils.js"
+  ],
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "peerDependencies": {
+    "next": ">=12.0.0",
+    "react": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/qrcode-terminal": "^0.12.0",
+    "@types/selfsigned": "^2.0.1",
+    "next": "^13.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "arg": "^5.0.2",
+    "qrcode-terminal": "^0.12.0",
+    "selfsigned": "^2.1.1"
+  }
+}
