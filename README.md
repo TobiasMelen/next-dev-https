@@ -6,14 +6,14 @@ I pretty much had a version of this script in all my work projects so i decided 
 
 ## Usage
 
-Install `next-dev-https` from npm with any package manager in your next project. Run `next-dev-https` instead of `next dev` to use this server. It works very similar to the regular next dev with two extra possible parameters:
+Install `next-dev-https` from npm with any package manager into your existing next project. Run `next-dev-https` instead of `next dev` to use this server. It works very similar to the regular next dev with two extra possible parameters:
 
 - `--qr/-q` Print a phone scannable QR code of your dev server's local network url on startup and `q` or `Q` press.
 - `--https/-s` Generate and use a self signed https certificate for the dev server.
 
 ### Example package json
 
-```json
+```jsonc
 {
  //...
  "scripts": {
