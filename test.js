@@ -5,7 +5,7 @@ const path = require("node:path");
 
 test("Test dev server startup", () =>
   new Promise((res, rej) => {
-    const childProcess = spawn("npm", ["run", "dev"], {
+    const childProcess = spawn("pnpm", ["run", "dev"], {
       cwd: path.join(__dirname, "sandbox"),
       stdio: ["pipe"],
     });
