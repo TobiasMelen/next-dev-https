@@ -8,6 +8,7 @@ test("Test dev server startup", () =>
     const childProcess = spawn("pnpm", ["run", "dev"], {
       cwd: "sandbox",
       stdio: ["pipe"],
+      shell: true,
     });
     const timeout = setTimeout(() => {
       rej("Test timed out");
