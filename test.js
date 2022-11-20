@@ -6,7 +6,7 @@ const path = require("node:path");
 test("Test dev server startup", () =>
   new Promise((res, rej) => {
     const childProcess = spawn("pnpm", ["run", "dev"], {
-      cwd: path.join(__dirname, "sandbox"),
+      cwd: "sandbox",
       stdio: ["pipe"],
     });
     const timeout = setTimeout(() => {
@@ -22,6 +22,12 @@ test("Test dev server startup", () =>
         res("Completed");
       }
     });
-    childProcess.stderr.on("data", (msg) => rej(msg));
-    childProcess.on("error", (err) => rej(err));
+    childProcess.stderr.on("data", (msg) => {
+      clearTimeout(timeout);
+      rej(msg);
+    });
+    childProcess.on("error", (err) => {
+      clearTimeout(timeout);
+      rej(err);
+    });
   }));
