@@ -12,6 +12,7 @@ test(
         const childProcess = spawn("pnpm", ["run", "dev"], {
           cwd: "sandbox",
           shell: true,
+          stdio: "pipe",
         });
         childProcess.stdout.setEncoding("utf-8");
         childProcess.stderr.setEncoding("utf-8");
@@ -26,6 +27,9 @@ test(
         });
         childProcess.on("error", (err) => {
           rej(err);
+        });
+        childProcess.on("close", (exitCode) => {
+          rej(`Exit code ${exitCode}`);
         });
       })
     )
