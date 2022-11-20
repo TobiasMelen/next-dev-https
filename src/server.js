@@ -171,7 +171,7 @@ Options
       }
       await app.prepare();
       //Hijack stdin if user should be able to reprint qr.
-      if (qrPrint) {
+      if (qrPrint && process.stdin.isTTY) {
         process.stdin.setRawMode(true);
         process.stdin.resume();
         process.stdin.setEncoding("utf8");
