@@ -5,7 +5,7 @@ const path = require("node:path");
 
 test(
   "Test dev server startup",
-  { timeout: 5000 },
+  { timeout: 10_000 },
   () =>
     new Promise((res, rej) =>
       setImmediate(() => {
