@@ -19,7 +19,7 @@ test(
         console.log("Received message", JSON.stringify(msg));
         if (msg.includes("compiled client and server successfully")) {
           res("Completed");
-          childProcess.kill("SIGINT");
+          childProcess.kill("SIGTERM");
         }
       });
       childProcess.stderr.on("data", (msg) => {
