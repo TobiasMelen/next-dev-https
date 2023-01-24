@@ -7,7 +7,7 @@ test(
   { timeout: 10000 },
   () =>
     new Promise((res, rej) => {
-      console.log("Spawining process");
+      //console.log("Spawining process");
       const childProcess = spawn("pnpm", ["run", "dev"], {
         cwd: "sandbox",
         shell: true,
@@ -16,7 +16,7 @@ test(
       childProcess.stdout.setEncoding("utf-8");
       childProcess.stderr.setEncoding("utf-8");
       childProcess.stdout.on("data", (msg) => {
-        console.log("Received message", msg);
+        //console.log("Received message", msg);
         if (msg.includes("compiled client and server successfully")) {
           res("Completed");
           childProcess.kill("SIGINT");
