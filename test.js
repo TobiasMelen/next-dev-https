@@ -4,7 +4,7 @@ const { spawn } = require("node:child_process");
 
 test(
   "Test dev server startup",
-  { timeout: 10_000 },
+  { timeout: 10000 },
   async () =>
     await new Promise((res, rej) => {
       console.log("Spawining process");
