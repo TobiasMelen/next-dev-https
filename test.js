@@ -2,7 +2,7 @@
 const { test } = require("node:test");
 const { spawn } = require("node:child_process");
 
-test("Test dev server startup", { timeout: 30000 }, () => {
+test("Test dev server startup", () => {
   const childProcess = spawn("pnpm", ["run", "dev"], {
     cwd: "sandbox",
     shell: true,
