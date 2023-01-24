@@ -11,13 +11,17 @@ test(
         cwd: "sandbox",
         shell: true,
         stdio: "pipe",
+        detached: true,
       });
       childProcess.stdout.setEncoding("utf-8");
       childProcess.stderr.setEncoding("utf-8");
       childProcess.stdout.on("data", (msg) => {
         if (msg.includes("compiled client and server successfully")) {
-          childProcess.kill("SIGTERM");
           res("Completed");
+          process.kill(
+            //@ts-ignore
+            -childProcess.pid
+          );
         }
       });
       childProcess.stderr.on("data", (msg) => {
