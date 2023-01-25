@@ -13,6 +13,7 @@ test("Test dev server startup", () => {
     childProcess.stdout.setEncoding("utf-8");
     childProcess.stderr.setEncoding("utf-8");
     childProcess.stdout.on("data", (msg) => {
+      console.log(JSON.stringify(msg));
       if (msg.includes("compiled client and server successfully")) {
         res("Completed");
       }
