@@ -7,12 +7,12 @@ test("Test dev server startup", () => {
     cwd: "sandbox",
     shell: true,
     stdio: "pipe",
+    detached: true,
   });
   return new Promise((res, rej) => {
     childProcess.stdout.setEncoding("utf-8");
     childProcess.stderr.setEncoding("utf-8");
     childProcess.stdout.on("data", (msg) => {
-      console.log(JSON.stringify(msg));
       if (msg.includes("compiled client and server successfully")) {
         res("Completed");
       }
