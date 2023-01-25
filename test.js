@@ -9,6 +9,7 @@ test("Test dev server startup", () => {
     stdio: "pipe",
     detached: true,
   });
+  console.log("Started child");
   childProcess.unref();
   return new Promise((res, rej) => {
     childProcess.stdout.setEncoding("utf-8");
