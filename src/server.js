@@ -165,13 +165,18 @@ Options
           }
           qrcode.generate(qrcodeUrl, { small: !big });
         });
+      
+      const acceptsInput =
+        process.stdin.isTTY && typeof process.stdin.setRawMode === "function";
+      
       if (qrPrint) {
         qrPrint();
-        console.log("Enter 'q' or 'Q' to display this QR again");
+        acceptsInput &&
+          console.log("Enter 'q' or 'Q' to display this QR again");
       }
       await app.prepare();
       //Hijack stdin if user should be able to reprint qr.
-      if (qrPrint && process.stdin.isTTY) {
+      if (qrPrint && acceptsInput) {
         process.stdin.setRawMode(true);
         process.stdin.resume();
         process.stdin.setEncoding("utf8");
@@ -279,8 +284,4 @@ function startServer(opts) {
   });
 }
 
-//# sourceMappingURL=start-server.js.map
-
 exports.nextDev = nextDev;
-
-//# sourceMappingURL=next-dev.js.map

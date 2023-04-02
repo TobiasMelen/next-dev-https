@@ -1,6 +1,6 @@
 {
   "name": "next-dev-https",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Run Next dev server with QR and self signed https for better mobile development",
   "repository": "https://github.com/TobiasMelen/next-dev-https",
   "keywords": [
