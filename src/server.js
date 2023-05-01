@@ -25,8 +25,8 @@ const generateCert = (/** @type {string} */ dir) => {
   if (!fs.existsSync(certDir)) {
     fs.mkdirSync(certDir, { recursive: true });
   }
-  const certPath = path.join(certDir, "cert.pem");
-  const keyPath = path.join(certDir, "key.pem");
+  const certPath = path.join(certDir, "cert-sha256.pem");
+  const keyPath = path.join(certDir, "key-sha256.pem");
   const existingCert =
     fs.existsSync(certPath) && fs.readFileSync(certPath, { encoding: "utf-8" });
   const existingKey =
@@ -39,7 +39,10 @@ const generateCert = (/** @type {string} */ dir) => {
     return { cert: existingCert, key: existingKey };
   }
   console.log("Generating Fresh self signed https certificate.");
-  const selfSignedCert = selfSigned.generate();
+  const selfSignedCert = selfSigned.generate(undefined, {
+    keySize: 2048,
+    algorithm: "sha256",
+  });
   fs.writeFileSync(certPath, selfSignedCert.cert);
   fs.writeFileSync(keyPath, selfSignedCert.private);
   return { cert: selfSignedCert.cert, key: selfSignedCert.private };
