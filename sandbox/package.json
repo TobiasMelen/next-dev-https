@@ -1,6 +1,6 @@
 {
   "name": "next-13",
-  "version": "0.1.0",
+  "version": "0.13.3",
   "private": true,
   "scripts": {
     "dev": "next-dev-https --https",
