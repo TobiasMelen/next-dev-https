@@ -6,7 +6,8 @@ var fs = require("fs");
 var path = require("path");
 var http = require("http");
 const https = require("https");
-var next = require("next");
+//@ts-ignore JsDoc is not allowing this cast
+/** @type {import("next").default} */ const next = require("next");
 var qrcode = require("qrcode-terminal");
 
 const {
@@ -272,7 +273,7 @@ function startServer(opts) {
         !opts.hostname || opts.hostname === "0.0.0.0"
           ? "localhost"
           : opts.hostname;
-      const app = next.default({
+      const app = next({
         ...opts,
         hostname,
         customServer: false,

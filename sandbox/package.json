@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@types/qrcode-terminal": "^0.12.0",
-    "next": "13.0.0",
+    "next": "13.4.1",
     "next-dev-https": "file:..",
     "react": "18.2.0",
     "react-dom": "18.2.0"
