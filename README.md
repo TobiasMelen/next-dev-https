@@ -1,3 +1,10 @@
+----
+# !! Unsupported Package !!
+
+### NextJS has implemented expermintal support for development https. Use that over this package: https://github.com/vercel/next.js/discussions/10935. Last supported NextJS version for this package is `13.3.0`.
+
+----
+
 # next-dev-https
 
 This is a minimally modified next development server with support for self signed https certificates and console QR codes. It aims to ease the hassle of using your mobile device as your primary development target. Use local https to access all the APIs that are restricted to [secure contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).
